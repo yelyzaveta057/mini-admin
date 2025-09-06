@@ -1,0 +1,202 @@
+/* App.module.css — Pink Neon Glass theme */
+:root {
+  --pink-50: #fff0f7;
+  --pink-100: #ffd6ea;
+  --pink-300: #ff9ad0;
+  --pink-400: #ff77c3;
+  --pink-500: #ff4fb4;
+  --pink-600: #ef2aa5;
+  --pink-700: #d1148f;
+
+  --bg-950: #0b0710;
+  --bg-900: #110a18;
+
+  --text-100: #fff7fb;
+  --text-300: #f9e5f2;
+  --text-dim: #dbc5d4;
+
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-2: rgba(255, 146, 211, 0.08);
+  --border: rgba(255, 255, 255, 0.12);
+  --shadow: 0 10px 30px rgba(255, 64, 160, 0.25);
+
+  --radius: 16px;
+}
+
+/* ----- app layout ----- */
+.app {
+  width: min(1100px, 100% - 32px);
+  margin: 28px auto 40px;
+  color: var(--text-100);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(255, 119, 195, .20), transparent 60%),
+    radial-gradient(1000px 500px at 110% 20%, rgba(255, 79, 180, .18), transparent 60%),
+    linear-gradient(180deg, var(--bg-900), var(--bg-950));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 22px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .45);
+  padding: 18px;
+}
+
+/* ----- header / nav ----- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  margin: -18px -18px 16px;
+  padding: 14px 18px;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(17, 10, 24, .8), rgba(17, 10, 24, .4));
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo {
+  font-weight: 800;
+  letter-spacing: .3px;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--pink-500), var(--pink-700));
+  color: white;
+  box-shadow: var(--shadow);
+  transition: transform .15s ease;
+}
+.logo:hover { transform: translateY(-1px) scale(1.02); }
+
+.nav {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+.nav a {
+  text-decoration: none;
+  color: var(--text-300);
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  transition: background .2s ease, border-color .2s ease, transform .15s ease;
+}
+.nav a:hover {
+  background: var(--glass-2);
+  border-color: rgba(255, 146, 211, 0.35);
+  transform: translateY(-1px);
+}
+
+/* ----- main ----- */
+.main {
+  display: grid;
+  gap: 16px;
+}
+
+/* ----- generic buttons (for Home page) ----- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 18px;
+  font-weight: 700;
+  border-radius: 14px;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, var(--pink-400), var(--pink-600));
+  color: white;
+  box-shadow: var(--shadow);
+  transition: transform .12s ease, box-shadow .2s ease, filter .2s ease;
+}
+.btn:hover { transform: translateY(-1px); filter: brightness(1.05); }
+
+.btnGhost {
+  background: var(--glass);
+  color: var(--text-100);
+  border: 1px solid rgba(255, 146, 211, 0.25);
+}
+.btnGhost:hover { background: var(--glass-2); }
+
+/* ----- cards (optional for MovieGrid wrappers) ----- */
+.card {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  transition: transform .12s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 146, 211, 0.35);
+  box-shadow: 0 10px 24px rgba(255, 64, 160, 0.18);
+}
+
+/* ----- pagination ----- */
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 8px;
+  margin-top: 6px;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.pagination li { list-style: none; }
+
+.pagination li a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  min-width: 40px;
+  padding: 0 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--text-300);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  transition: background .2s ease, color .2s ease, border-color .2s ease, transform .12s ease;
+}
+.pagination li a:hover {
+  transform: translateY(-1px);
+  background: var(--glass-2);
+  border-color: rgba(255, 146, 211, 0.35);
+}
+.active a {
+  color: white;
+  border-color: rgba(255, 146, 211, 0.55);
+  background:
+    radial-gradient(120% 120% at 50% 0%, rgba(255, 154, 208, .30), transparent 40%),
+    linear-gradient(135deg, var(--pink-500), var(--pink-700));
+  box-shadow: 0 8px 18px rgba(255, 64, 160, .28);
+}
+
+/* ----- utility ----- */
+.sectionTitle {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: .2px;
+  margin: 8px 0 4px;
+  background: linear-gradient(90deg, var(--pink-50), var(--pink-300));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.helper {
+  color: var(--text-dim);
+  font-size: 14px;
+}
+
+/* responsive tweaks */
+@media (max-width: 720px) {
+  .logo { font-size: 18px; }
+  .nav a { padding: 8px 10px; }
+  .pagination { gap: 6px; }
+}
